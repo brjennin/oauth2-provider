@@ -11,10 +11,10 @@ module OAuth2
       has_many :authorizations, :class_name => 'OAuth2::Model::Authorization', :dependent => :destroy
 
       validates_uniqueness_of :client_id
-      validates_presence_of   :name#, :redirect_uri
+      # validates_presence_of   :name, :redirect_uri
       # validate :check_format_of_redirect_uri
 
-      attr_accessible :name, :redirect_uri
+      # attr_accessible :name, :redirect_uri
 
       before_create :generate_credentials
 
@@ -37,12 +37,12 @@ module OAuth2
 
     private
 
-      def check_format_of_redirect_uri
-        uri = URI.parse(redirect_uri)
-        errors.add(:redirect_uri, 'must be an absolute URI') unless uri.absolute?
-      rescue
-        errors.add(:redirect_uri, 'must be a URI')
-      end
+      # def check_format_of_redirect_uri
+      #   uri = URI.parse(redirect_uri)
+      #   errors.add(:redirect_uri, 'must be an absolute URI') unless uri.absolute?
+      # rescue
+      #   errors.add(:redirect_uri, 'must be a URI')
+      # end
 
       def generate_credentials
         self.client_id = self.class.create_client_id
