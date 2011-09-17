@@ -181,7 +181,8 @@ module OAuth2
       end
 
       def validate_client_credentials
-        raise "TESTING"
+        @error = "TESTING"
+        @error_description = 'TESTING OF THE ERROR BROADCAST SYSTEM'
         # return if @error
         #
         # @authorization = Provider.handle_client_credentials(@client, @params[CLIENT_ID], @params[CLIENT_SECRET]) #here
