@@ -33,7 +33,7 @@ module OAuth2
       params = params.merge(auth)
 
 
-      logger.debug "Grant type is: #{params[GRANT_TYPE]}"
+      puts "Grant type is: #{params[GRANT_TYPE]}"
 
       if params[GRANT_TYPE]
         request.post? ?
