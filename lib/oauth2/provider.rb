@@ -104,7 +104,7 @@ module OAuth2
       @client_credentials_handler = block
     end
 
-    def self.handle_client_credentials(client, client_id, client_secret)
+    def self.handle_client_credential(client, client_id, client_secret)
       return nil unless @client_credentials_handler
       @client_credentials_handler.call(client, client_id, client_secret)
     end
