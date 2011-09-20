@@ -181,8 +181,6 @@ module OAuth2
       end
 
       def validate_client_credentials
-        #brian jennings here
-
         @authorization = Provider.handle_client_credential(@client, @params[CLIENT_ID], @params[CLIENT_SECRET])
         return validate_authorization if @authorization
       end
