@@ -20,11 +20,11 @@ module OAuth2
       extend Hashing
       hashes_attributes :access_token, :refresh_token
 
-      before_create :set_expiration_time
+      # before_create :set_expiration_time
 
-      def set_expiration_time
-        self.expires_at = Time.now+TIME_TO_EXPIRE
-      end
+      # def set_expiration_time
+      #   self.expires_at = Time.now+TIME_TO_EXPIRE
+      # end
 
       def self.for(resource_owner, client)
         return nil unless resource_owner and client
