@@ -1,8 +1,6 @@
 module OAuth2
   module Model
-
     class Authorization < ActiveRecord::Base
-      SECONDS_TO_EXPIRE = 3600
 
       set_table_name :oauth2_authorizations
 
@@ -24,7 +22,7 @@ module OAuth2
       before_create :set_expiration_time
 
       def set_expiration_time
-        self.expires_at = Time.now+SECONDS_TO_EXPIRE
+        self.expires_at = Time.now+EXPIRY_TIME
       end
 
       def self.for(resource_owner, client)
