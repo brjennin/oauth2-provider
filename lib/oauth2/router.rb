@@ -31,10 +31,6 @@ module OAuth2
       end
 
       params = params.merge(auth)
-
-
-      puts "Grant type is: #{params[GRANT_TYPE]}"
-
       if params[GRANT_TYPE]
         request.post? ?
             Provider::Exchange.new(resource_owner, params) :

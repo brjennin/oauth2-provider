@@ -99,10 +99,6 @@ module OAuth2
       handler ? handler.call(client, assertion.value) : nil
     end
 
-    def self.handle_client_credentials(client_id, client_secret)
-      #here
-    end
-
     def self.parse(*args)
       Router.parse(*args)
     end
