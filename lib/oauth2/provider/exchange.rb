@@ -183,8 +183,8 @@ module OAuth2
       def validate_client_credentials
         #brian jennings here
 
-        # @authorization = Provider.handle_client_credentials(@client, @params[CLIENT_ID], @params[CLIENT_SECRET])
-        # return validate_authorization if @authorization
+        @authorization = Provider.handle_client_credentials(@client, @params[CLIENT_ID], @params[CLIENT_SECRET])
+        return validate_authorization if @authorization
       end
 
       def validate_refresh_token
