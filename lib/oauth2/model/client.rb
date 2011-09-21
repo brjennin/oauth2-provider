@@ -20,10 +20,11 @@ module OAuth2
         end
       end
 
-      attr_reader :client_secret
+      # attr_reader :client_secret
 
-      def client_secret=(secret)
+      def set_client_secret(secret)
         @client_secret = secret
+        self.client_secret = secret
         self.client_secret_hash = BCrypt::Password.create(secret)
       end
 
@@ -34,7 +35,7 @@ module OAuth2
     private
       def generate_credentials
         self.client_id = self.class.create_client_id
-        self.client_secret = OAuth2.random_string
+        self.set_client_secret(OAuth2.random_string)
       end
     end
 
