@@ -20,6 +20,10 @@ module OAuth2
         end
       end
 
+      def regenerate_secret
+        self.set_client_secret(OAuth2.random_string)
+        self.save!
+      end
       # attr_reader :client_secret
 
       def set_client_secret(secret)
