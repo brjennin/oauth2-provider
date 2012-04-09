@@ -3,7 +3,7 @@ module OAuth2
     class Authorization < ActiveRecord::Base
       TIME_TO_EXPIRE = 3600
 
-      set_table_name :oauth2_authorizations
+      self.table_name = "oauth2_authorizations"
 
       belongs_to :oauth2_resource_owner, :polymorphic => true
       alias :owner  :oauth2_resource_owner

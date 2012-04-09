@@ -1,16 +1,16 @@
 module TestApp
-  
+
   class User < ActiveRecord::Base
-    set_table_name :users
-    
+    self.table_name = "users"
+
     include OAuth2::Model::ResourceOwner
     include OAuth2::Model::ClientOwner
-    
+
     def self.[](name)
       find_or_create_by_name(name)
     end
   end
-  
+
   module Helper
     module RackRunner
       def start(port)
@@ -20,7 +20,7 @@ module TestApp
         end
         sleep 0.1 until @server
       end
-      
+
       def stop
         @server.stop if @server
         @server = nil
@@ -28,6 +28,6 @@ module TestApp
       end
     end
   end
-  
+
 end
 
